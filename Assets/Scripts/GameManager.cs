@@ -18,7 +18,7 @@ public class GameManager
     }
 
     private int score = 0;
-    public bool isGameOver { get; private set; }
+    public bool isGameOver { get; private set; } = false;
 
     private void Awake() {
         if (instance != this) {

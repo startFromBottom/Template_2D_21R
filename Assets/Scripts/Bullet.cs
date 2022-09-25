@@ -21,22 +21,29 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-
         if (collision.collider.tag == "Bullet") {
             // effect 추가 필요
             Destroy(gameObject);
         } else if (collision.collider.tag == "Opponent") {
+            //
             Destroy(gameObject);
         }
+    }
 
-        IDamageable target = collision.collider.GetComponent<IDamageable>();
-        //print("target ==> " + target);
+    private void OnTriggerEnter2D(Collider2D other) {
 
+        IDamageable target = other.GetComponent<IDamageable>();
         if (target != null) {
             // TODO (하드코딩된 값이 아닌 GunData로부터 가져와야)
             print("target ondamge ==> " + target);
             target.onDamage(20f);
         }
 
+        IItem item = other.GetComponent<IItem>();
+
+        if (item != null) {
+            print("item ==>  " + item);
+            item.Use(gameObject);
+        }
     }
 }

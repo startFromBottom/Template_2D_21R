@@ -3,6 +3,6 @@ using UnityEngine;
 
 public interface IItem {
 
-    void Use(GameObject target);
+    public void Use(GameObject target);
 
 }
