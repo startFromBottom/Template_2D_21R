@@ -13,6 +13,9 @@ public class LivingEntity : MonoBehaviour, IDamageable {
         }
         set {
             health = value;
+            if (health < 0) {
+                health = 0;
+            }
             UIManager.instance.UpdateHealthText((int) healthProperty);
         }
     }

@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour {
         }
 
         if (collision.collider.CompareTag("Bullet")) {
-            GameManager.instance.subtractScore(collideWithBulletScore);
+            GameManager.instance.SubtractScore(collideWithBulletScore);
             // effect 추가 필요
             Destroy(gameObject);
             

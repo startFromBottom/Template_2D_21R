@@ -40,6 +40,10 @@ public class ItemSpawner : MonoBehaviour {
 
     private void Spawn() {
 
+        if (GameManager.instance.isGameOver) {
+            return;
+        }
+
         Vector2 spawnPosition = GetRandomPoint();
 
         GameObject selectedItems = items[Random.Range(0, items.Length)];

@@ -23,14 +23,8 @@ public class PlayerHealth : LivingEntity {
 
     }
 
-    protected override void OnEnable() {
-        base.OnEnable();
-        UIManager.instance.UpdateHealthText((int) startingHealth);
-    }
-
     public override void OnDamage(float damage) {
         base.OnDamage(damage);
-        UIManager.instance.UpdateHealthText((int) healthProperty);
 
         if (healthProperty <= 0 && !dead) {
             Die();

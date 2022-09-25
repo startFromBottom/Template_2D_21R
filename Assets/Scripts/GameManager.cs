@@ -49,7 +49,7 @@ public class GameManager
         }
     }
 
-    public void subtractScore(int newScore) {
+    public void SubtractScore(int newScore) {
         Debug.Assert(newScore >= 0);
         if (!isGameOver && scoreProperty > 0) {
             scoreProperty -= newScore;

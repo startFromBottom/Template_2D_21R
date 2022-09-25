@@ -10,9 +10,9 @@ public class Poison: MonoBehaviour, IItem {
         if (target.tag == "Bullet") {
             GameObject playerObj =
                 GameObject.FindGameObjectWithTag("Player");
-            PlayerHealth playerHealth =
-                playerObj.GetComponent<PlayerHealth>();
-            playerHealth.healthProperty -= damage;
+            LivingEntity playerHealth =
+                playerObj.GetComponent<LivingEntity>();
+            playerHealth.OnDamage(damage);
         }
 
         Destroy(gameObject);

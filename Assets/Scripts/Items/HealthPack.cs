@@ -9,9 +9,10 @@ public class HealthPack : MonoBehaviour, IItem {
         if (target.tag == "Bullet") {
             GameObject playerObj = 
                 GameObject.FindGameObjectWithTag("Player");
-            PlayerHealth playerHealth =
-                playerObj.GetComponent<PlayerHealth>();
-            playerHealth.healthProperty += health;
+            
+            LivingEntity playerHealth =
+                playerObj.GetComponent<LivingEntity>();
+            playerHealth.RestoreHealth(health);
 
         }
 
