@@ -21,6 +21,7 @@ public class UIManager: MonoBehaviour {
     public Text scoreText; // 점수 표시
     public Text healthText; // 남은 체력 표시
     public Text stageText; // 스테이지 표시
+    public Text timeText;
     public GameObject gameoverUI; // 게임 오버시 활성화할 UI
 
     public void UpdateAmmoText(int magAmmo) {
@@ -38,6 +39,11 @@ public class UIManager: MonoBehaviour {
     public void UpdateStageText(int stage) {
         stageText.text = "Stage : " + stage;
     }
+    
+    public void UpdatePlayTimeText(float playTime) {
+        timeText.text = "Play Time: " + playTime.ToString("N2");
+    }
+    
     // 게임 오버 UI 활성화
     public void SetActiveGameoverUI(bool active) {
         gameoverUI.SetActive(active);

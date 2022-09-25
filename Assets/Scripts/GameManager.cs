@@ -5,7 +5,6 @@ public class GameManager
     : MonoBehaviour {
 
     private static GameManager me;
-
     public static GameManager instance {
 
         get {
@@ -16,7 +15,8 @@ public class GameManager
         }
 
     }
-    
+
+    private float playTime = 0f;
     private int score = 0;
     private int scoreProperty {
         get {
@@ -36,11 +36,16 @@ public class GameManager
             Destroy(gameObject);
         }
     }
-
-    // Use this for initialization
+    
     void Start() {
         FindObjectOfType<PlayerHealth>().onDeath += EndGame;
     }
+
+    void Update() {
+        playTime += Time.deltaTime;
+        UIManager.instance.UpdatePlayTimeText(playTime);
+    }
+    
 
     public void AddScore(int newScore) {
         Debug.Assert(newScore >= 0);

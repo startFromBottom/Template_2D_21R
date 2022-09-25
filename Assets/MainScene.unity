@@ -2147,6 +2147,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &1234472014 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9068331121301201215, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+  m_PrefabInstance: {fileID: 4856684337514937902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1324536335
 GameObject:
   m_ObjectHideFlags: 0
@@ -3038,6 +3049,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2304499211335433403, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304499211335433403, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304499211335433403, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304499211335433403, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -450
+      objectReference: {fileID: 0}
     - target: {fileID: 4856684337144262136, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3151,9 +3178,29 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4856684337900129463, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1234472014}
+    - target: {fileID: 4856684337900129463, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
       propertyPath: gameoverUI
       value: 
       objectReference: {fileID: 425940726}
+    - target: {fileID: 9068331121301201215, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+      propertyPath: m_Text
+      value: 'Play Time : 0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068331121301201215, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068331121301201215, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068331121301201215, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
 --- !u!1001 &5774041907795450563
