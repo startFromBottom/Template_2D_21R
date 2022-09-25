@@ -43,7 +43,10 @@ public class GameManager
 
     void Update() {
         playTime += Time.deltaTime;
-        UIManager.instance.UpdatePlayTimeText(playTime);
+
+        if (!isGameOver) {
+            UIManager.instance.UpdatePlayTimeText(playTime);
+        }
     }
     
 
