@@ -30,18 +30,18 @@ public class PlayerHealth : LivingEntity {
 
     public override void OnDamage(float damage) {
         base.OnDamage(damage);
-        UIManager.instance.UpdateHealthText((int) health);
+        UIManager.instance.UpdateHealthText((int) healthProperty);
 
-        if (health <= 0 && !dead) {
+        if (healthProperty <= 0 && !dead) {
             Die();
         }
-         
+        
     }
 
     public override void RestoreHealth(float newHealth) {
         base.RestoreHealth(newHealth);
 
-        UIManager.instance.UpdateHealthText((int) health);
+        UIManager.instance.UpdateHealthText((int) healthProperty);
 
     }
 

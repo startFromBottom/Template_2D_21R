@@ -16,8 +16,19 @@ public class GameManager
         }
 
     }
-
+    
     private int score = 0;
+    private int scoreProperty {
+        get {
+            return score;
+        }
+
+        set {
+            score = value;
+            UIManager.instance.UpdateScoreText(score);
+        }
+    }
+    
     public bool isGameOver { get; private set; }
 
     private void Awake() {
@@ -32,10 +43,16 @@ public class GameManager
     }
 
     public void AddScore(int newScore) {
-        // 게임 오버가 아닌 상태에서만 점수 증가 가능
+        Debug.Assert(newScore >= 0);
         if (!isGameOver) {
-            score += newScore;
-            UIManager.instance.UpdateScoreText(score);
+            scoreProperty += newScore;
+        }
+    }
+
+    public void subtractScore(int newScore) {
+        Debug.Assert(newScore >= 0);
+        if (!isGameOver && scoreProperty > 0) {
+            scoreProperty -= newScore;
         }
     }
 

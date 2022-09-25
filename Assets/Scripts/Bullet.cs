@@ -3,9 +3,7 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-    //public BulletData bulletData;
-
-    //private SpriteRenderer spriteRenderer;
+    private int collideWithBulletScore = 2;
 
     void Start() {
 
@@ -21,29 +19,48 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.collider.tag == "Bullet") {
+
+        if (GameManager.instance.isGameOver) {
+            return;
+        }
+
+        if (collision.collider.CompareTag("Bullet")) {
+            GameManager.instance.subtractScore(collideWithBulletScore);
             // effect 추가 필요
             Destroy(gameObject);
-        } else if (collision.collider.tag == "Opponent") {
-            //
+            
+        } 
+        
+        /**
+         * TODO : tag가 Player일 때는 OnTriggerEnter로,
+         * tag가 Opponent일 때는 OnCollisionEnter로 bullet object를 파괴하고 있음.
+         * 일관된 로직으로 처리할 수는 없을까
+         */
+        else if (collision.collider.CompareTag("Opponent")) {
             Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
 
+        if (GameManager.instance.isGameOver) {
+            return;
+        }
+
         IDamageable target = other.GetComponent<IDamageable>();
         if (target != null) {
-
             // TODO - 하드코딩 된 값이 아닌 IDamageable 을 구현하는 객체의
             // damage 속성으로부터 가져와야 함..
             target.OnDamage(20f);
         }
 
         IItem item = other.GetComponent<IItem>();
-
         if (item != null) {
             item.Use(gameObject);
+        }
+        
+        if (other.CompareTag("Player")) {
+            Destroy(gameObject);
         }
     }
 }

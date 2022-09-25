@@ -13,13 +13,22 @@ public class Gun : MonoBehaviour {
 
     public Transform fireTransform;
 
-    public GameObject Bullet;
+    public GameObject bullet;
 
     private AudioSource gunAudioPlayer; // 총 소리 재생기
 
     public GunData gunData; // 총의 현재 데이터
 
-    public int ammoRemain = 100; // 남은 전체 탄알
+    private int ammoRemain = 100;
+    public int ammoRemainProperty {
+        get {
+            return ammoRemain;
+        }
+        set {
+            ammoRemain = value;
+            UIManager.instance.UpdateAmmoText(ammoRemain);
+        }
+    }
 
     private float lastFireTime; // 총을 마지막으로 발사한 시점
 
@@ -50,8 +59,8 @@ public class Gun : MonoBehaviour {
 
     private void Shot() {
 
-        GameObject BulletInstance =
-     Instantiate(Bullet, fireTransform.position, fireTransform.rotation);
+        GameObject BulletInstance = 
+            Instantiate(bullet, fireTransform.position, fireTransform.rotation);
         BulletInstance.SetActive(true);
         BulletInstance.GetComponent<Rigidbody2D>()
             .AddForce(BulletInstance.transform.right * 600);
@@ -59,12 +68,10 @@ public class Gun : MonoBehaviour {
         gunAnimator.SetTrigger("Shoot");
         Destroy(BulletInstance, 2);
 
-        ammoRemain--;
-        if (ammoRemain <= 0) {
+        ammoRemainProperty--;
+        if (ammoRemainProperty <= 0) {
             state = State.Empty;
         }
-
-        UIManager.instance.UpdateAmmoText(ammoRemain);
     }
 
 }

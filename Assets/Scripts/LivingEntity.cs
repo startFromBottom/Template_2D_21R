@@ -5,7 +5,18 @@ using System;
 public class LivingEntity : MonoBehaviour, IDamageable {
 
     public float startingHealth = 100f;
-    public float health { get; protected set; }
+    private float health;
+
+    public float healthProperty {
+        get {
+            return health;
+        }
+        set {
+            health = value;
+            UIManager.instance.UpdateHealthText((int) healthProperty);
+        }
+    }
+
     public bool dead { get; protected set; }
     public event Action onDeath; // 사망시 발동 이벤트
 
@@ -20,8 +31,8 @@ public class LivingEntity : MonoBehaviour, IDamageable {
             return;
         }
         
-        health -= damage;
-        if (health <= 0 && !dead) {
+        healthProperty -= damage;
+        if (healthProperty <= 0 && !dead) {
             Die();
         }
 
