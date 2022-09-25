@@ -5,8 +5,7 @@ using UnityEngine;
 public interface IDamageable {
 
 
-    // hitPoint : 맞은 지점, hitNormal: 맞은 표면의 방향
-    void onDamage(float damage) {
+    void OnDamage(float damage) {
         
     }
 

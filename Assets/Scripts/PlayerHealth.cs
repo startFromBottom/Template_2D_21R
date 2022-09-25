@@ -11,25 +11,31 @@ public class PlayerHealth : LivingEntity {
 
     private AudioSource playerAudioPlayer;
 
-
-    // gun의 animator도 여기에 추가?
-
+    private PlayerMovement playerMovement;
+    private PlayerShooter playerShooter;
+    private PlayerInput playerInput;
 
     private void Awake() {
-        
+
+        playerMovement = GetComponent<PlayerMovement>();
+        playerShooter = GetComponent<PlayerShooter>();
+        playerInput = GetComponent<PlayerInput>();
+
     }
 
     protected override void OnEnable() {
-
         base.OnEnable();
         UIManager.instance.UpdateHealthText((int) startingHealth);
-
     }
 
     public override void OnDamage(float damage) {
         base.OnDamage(damage);
-        print("update health text");
         UIManager.instance.UpdateHealthText((int) health);
+
+        if (health <= 0 && !dead) {
+            Die();
+        }
+         
     }
 
     public override void RestoreHealth(float newHealth) {
@@ -40,18 +46,10 @@ public class PlayerHealth : LivingEntity {
     }
 
     public override void Die() {
+        playerMovement.enabled = false;
+        playerShooter.enabled = false;
+        playerInput.enabled = false;
         base.Die();
-
-    }
-
-    // Use this for initialization
-    void Start() {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
     }
 
     

@@ -34,15 +34,15 @@ public class Bullet : MonoBehaviour {
 
         IDamageable target = other.GetComponent<IDamageable>();
         if (target != null) {
-            // TODO (하드코딩된 값이 아닌 GunData로부터 가져와야)
-            print("target ondamge ==> " + target);
-            target.onDamage(20f);
+
+            // TODO - 하드코딩 된 값이 아닌 IDamageable 을 구현하는 객체의
+            // damage 속성으로부터 가져와야 함..
+            target.OnDamage(20f);
         }
 
         IItem item = other.GetComponent<IItem>();
 
         if (item != null) {
-            print("item ==>  " + item);
             item.Use(gameObject);
         }
     }

@@ -18,7 +18,7 @@ public class GameManager
     }
 
     private int score = 0;
-    public bool isGameOver { get; private set; } = false;
+    public bool isGameOver { get; private set; }
 
     private void Awake() {
         if (instance != this) {
@@ -28,15 +28,7 @@ public class GameManager
 
     // Use this for initialization
     void Start() {
-
         FindObjectOfType<PlayerHealth>().onDeath += EndGame;
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-
     }
 
     public void AddScore(int newScore) {

@@ -16,9 +16,11 @@ public class LivingEntity : MonoBehaviour, IDamageable {
 
     public virtual void OnDamage(float damage) {
 
+        if (dead) {
+            return;
+        }
+        
         health -= damage;
-        print("bcde");
-
         if (health <= 0 && !dead) {
             Die();
         }
@@ -27,7 +29,6 @@ public class LivingEntity : MonoBehaviour, IDamageable {
 
     public virtual void RestoreHealth(float newHealth) {
         if (dead) {
-            // 이미 사망한 경우에는 체력 회복이 불가능
             return;
         }
 
@@ -37,6 +38,7 @@ public class LivingEntity : MonoBehaviour, IDamageable {
     public virtual void Die() {
         if (onDeath != null) {
             onDeath();
+            print("onDeath start");
         }
 
         dead = true;

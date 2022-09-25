@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class AmmoPack : MonoBehaviour, IItem {
 
@@ -12,7 +11,4 @@ public class AmmoPack : MonoBehaviour, IItem {
         }
         Destroy(gameObject);
     }
-
-    
-
 }
