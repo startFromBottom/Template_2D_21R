@@ -16,7 +16,6 @@ public class LivingEntity : MonoBehaviour, IDamageable {
             if (health < 0) {
                 health = 0;
             }
-            UIManager.instance.UpdateHealthText((int) healthProperty);
         }
     }
 
@@ -52,7 +51,6 @@ public class LivingEntity : MonoBehaviour, IDamageable {
     public virtual void Die() {
         if (onDeath != null) {
             onDeath();
-            print("onDeath start");
         }
 
         dead = true;
