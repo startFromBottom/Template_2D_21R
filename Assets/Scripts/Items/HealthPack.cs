@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+
+/**
+ * Not used
+ */
 public class HealthPack : MonoBehaviour, IItem {
 
     public float health = 20;
