@@ -29,4 +29,11 @@ public class StageManager : MonoBehaviour {
     private void Awake() {
         stageProperty = 1;
     }
+
+    public void GoNextStage() {
+        stageProperty += 1;
+        // TODO: tage가 증가하는 관련 이펙트가 추가되어야 함
+    }
+
+
 }

@@ -9,9 +9,7 @@ public class PlayerShooter : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-
         playerInput = GetComponent<PlayerInput>();
-
     }
 
     private void OnEnable() {
@@ -25,11 +23,8 @@ public class PlayerShooter : MonoBehaviour {
     private void Update() {
 
         if (playerInput.fire) {
-
             gun.Fire();
-
         }
-       
     }
 
 }

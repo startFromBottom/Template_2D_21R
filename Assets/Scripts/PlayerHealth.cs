@@ -32,19 +32,21 @@ public class PlayerHealth : LivingEntity {
         
     }
 
-    public override void RestoreHealth(float newHealth) {
-        base.RestoreHealth(newHealth);
-
-        UIManager.instance.UpdateHealthText((int) healthProperty);
-
-    }
-
     public override void Die() {
-        playerMovement.enabled = false;
-        playerShooter.enabled = false;
-        playerInput.enabled = false;
+
+        if (playerMovement != null) {
+            playerMovement.enabled = false;
+        }
+
+        if (playerShooter != null) {
+            playerShooter.enabled = false;
+        }
+
+        if (playerInput != null) {
+            playerInput.enabled = false;
+        }
+        
         base.Die();
     }
 
-    
 }

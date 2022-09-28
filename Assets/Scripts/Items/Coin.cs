@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour, IItem {
     public void Use(GameObject target) {
 
         if (target.tag == "Bullet") {
-            GameManager.instance.AddScore(score);
+            ScoreManager.instance.AddScore(score);
         }
         Destroy(gameObject);
     }

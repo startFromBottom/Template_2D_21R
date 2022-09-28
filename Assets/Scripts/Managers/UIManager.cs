@@ -19,7 +19,6 @@ public class UIManager: MonoBehaviour {
 
     public Text ammoText; // 탄약 표시
     public Text scoreText; // 점수 표시
-    public Text healthText; // 남은 체력 표시
     public Text stageText; // 스테이지 표시
     public Text timeText;
     public GameObject gameoverUI; // 게임 오버시 활성화할 UI
@@ -30,10 +29,6 @@ public class UIManager: MonoBehaviour {
 
     public void UpdateScoreText(int newScore) {
         scoreText.text = "Score : " + newScore;
-    }
-
-    public void UpdateHealthText(int health) {
-        healthText.text = "Health : " + health;
     }
 
     public void UpdateStageText(int stage) {
