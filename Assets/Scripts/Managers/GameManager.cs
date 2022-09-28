@@ -46,9 +46,18 @@ public class GameManager
 
         if (!isGameOver) {
             UIManager.instance.UpdatePlayTimeText(playTime);
+
+            // TODO (stage 증가 로직 변경)
+            if (playTime > 5 * StageManager.instance.stageProperty) {
+                goNextStage();
+            }
+
         }
     }
-    
+
+    private void goNextStage() {
+        StageManager.instance.stageProperty += 1;
+    }
 
     public void AddScore(int newScore) {
         Debug.Assert(newScore >= 0);
