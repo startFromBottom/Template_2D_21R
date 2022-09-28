@@ -25,9 +25,6 @@ public class PlayerInput : MonoBehaviour {
 
         fire = Input.GetButton(fireButtonName);
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-
         Input.GetKey(KeyCode.LeftArrow);
-
     }
 }
