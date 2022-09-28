@@ -16,6 +16,8 @@ public class Gun : MonoBehaviour {
     public GameObject bullet;
 
     private AudioSource gunAudioPlayer; // 총 소리 재생기
+    
+    private Animator gunAnimator;
 
     public GunData gunData; // 총의 현재 데이터
 
@@ -31,8 +33,6 @@ public class Gun : MonoBehaviour {
     }
 
     private float lastFireTime; // 총을 마지막으로 발사한 시점
-
-    public Animator gunAnimator;
 
     private void Awake() {
         gunAudioPlayer = GetComponent<AudioSource>();
@@ -63,10 +63,10 @@ public class Gun : MonoBehaviour {
             Instantiate(bullet, fireTransform.position, fireTransform.rotation);
         BulletInstance.SetActive(true);
         BulletInstance.GetComponent<Rigidbody2D>()
-            .AddForce(BulletInstance.transform.right * 600);
+            .AddForce(BulletInstance.transform.right * gunData.speed);
 
-        gunAnimator.SetTrigger("Shoot");
-        Destroy(BulletInstance, 2);
+        
+        Destroy(BulletInstance, 3);
 
         ammoRemainProperty--;
         if (ammoRemainProperty <= 0) {
