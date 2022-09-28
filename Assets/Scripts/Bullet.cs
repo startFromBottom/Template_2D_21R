@@ -28,7 +28,6 @@ public class Bullet : MonoBehaviour {
             GameManager.instance.SubtractScore(collideWithBulletScore);
             // effect 추가 필요
             Destroy(gameObject);
-            
         } 
         
         /**
@@ -51,7 +50,7 @@ public class Bullet : MonoBehaviour {
         if (target != null) {
             // TODO - 하드코딩 된 값이 아닌 IDamageable 을 구현하는 객체의
             // damage 속성으로부터 가져와야 함..
-            target.OnDamage(20f);
+            target.OnDamage(100f);
         }
 
         IItem item = other.GetComponent<IItem>();
