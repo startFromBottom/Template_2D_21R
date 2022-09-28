@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-
+/**
+ * Not used
+ */
 public class Poison: MonoBehaviour, IItem {
 
     public float damage = 10;
