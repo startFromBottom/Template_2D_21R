@@ -1,47 +1,46 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour {
 
     public float moveSpeed = 3f;
-
     public Transform player;
-
-    // TODO: flag 변수로 Player / Opponent를 분리하는 것이 맞을까 확인이 필요
-    //public bool isOpponent = false;
-
     Vector2 direction;
 
+    private Camera cam;
+
     private PlayerInput playerInput;
+    
+    private Vector3 startPoint;
+    private Vector3 endPoint;
 
     // Use this for initialization
     void Start() {
         playerInput = GetComponent<PlayerInput>();
-        
+        cam = Camera.main;
     }
 
     private void Update() {
-
-        moveOrRotate();
+        Rotate();
+        Move();
     }
 
-    private void moveOrRotate() {
+    private void Rotate() {
+        if (playerInput.pulling) {
+            Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+            direction = -player.position + currentPoint;
+            player.transform.right = direction;
+        }
+    }
 
-        // move
+    private void Move() {
         if (playerInput.moveLeft) {
             player.transform.position +=
                 new Vector3(-1 * Time.deltaTime * moveSpeed, 0, 0);
-
         } else if (playerInput.moveRight) {
             player.transform.position
                 += new Vector3(Time.deltaTime * moveSpeed, 0, 0);
         }
-
-        // update
-        else {
-            direction = playerInput.mousePos - (Vector2)player.position;
-            player.transform.right = direction;
-        }
-
     }
-
 }
