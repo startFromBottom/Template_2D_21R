@@ -16,5 +16,5 @@ MonoBehaviour:
   reloadClip: {fileID: 0}
   damage: 25
   startAmmoRemain: 100
-  timeBetFire: 0.5
+  timeBetFire: 0.2
   speed: 500
