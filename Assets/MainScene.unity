@@ -2051,8 +2051,8 @@ GameObject:
   - component: {fileID: 1230188669}
   - component: {fileID: 1230188675}
   - component: {fileID: 1230188666}
-  - component: {fileID: 1230188673}
   - component: {fileID: 1230188676}
+  - component: {fileID: 1230188677}
   m_Layer: 0
   m_Name: Duel Opponent
   m_TagString: Opponent
@@ -2155,20 +2155,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1230188673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230188664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bd5a97d4c4784fe288687dfd437fd60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duelOpponent: {fileID: 1230188671}
-  playerMovement: {fileID: 555842682}
 --- !u!114 &1230188675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2198,6 +2184,20 @@ CircleCollider2D:
   m_Offset: {x: 0.3, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &1230188677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230188664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd5a97d4c4784fe288687dfd437fd60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duelOpponent: {fileID: 1230188671}
+  playerMovement: {fileID: 555842682}
 --- !u!114 &1234472014 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9068331121301201215, guid: 0853e309a49174177871dd1bd95015f1, type: 3}

@@ -30,17 +30,17 @@ public class PlayerMovement : MonoBehaviour {
         if (playerInput.moveLeft) {
             player.transform.position +=
                 new Vector3(-1 * Time.deltaTime * moveSpeed, 0, 0);
-
         } else if (playerInput.moveRight) {
             player.transform.position
                 += new Vector3(Time.deltaTime * moveSpeed, 0, 0);
         }
-
-        // update
         else {
+            // rotate
             direction = playerInput.mousePos - (Vector2)player.position;
             player.transform.right = direction;
         }
+        
+        
 
     }
 
