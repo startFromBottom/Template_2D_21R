@@ -1619,7 +1619,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.7998719, g: 0.9150943, b: 0.22014059, a: 1}
+  m_Color: {r: 0.9647059, g: 0.7882353, b: 0.31764707, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1981,7 +1981,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.12646852, g: 0.6995528, b: 0.9245283, a: 1}
+  m_Color: {r: 0.9019608, g: 0.40392157, b: 0.18431373, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2052,7 +2052,7 @@ GameObject:
   - component: {fileID: 1230188675}
   - component: {fileID: 1230188666}
   - component: {fileID: 1230188673}
-  - component: {fileID: 1230188674}
+  - component: {fileID: 1230188676}
   m_Layer: 0
   m_Name: Duel Opponent
   m_TagString: Opponent
@@ -2169,32 +2169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duelOpponent: {fileID: 1230188671}
   playerMovement: {fileID: 555842682}
---- !u!61 &1230188674
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230188664}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
-  m_EdgeRadius: 0
 --- !u!114 &1230188675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2208,6 +2182,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+--- !u!58 &1230188676
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230188664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!114 &1234472014 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9068331121301201215, guid: 0853e309a49174177871dd1bd95015f1, type: 3}
@@ -2233,7 +2223,6 @@ GameObject:
   - component: {fileID: 1324536339}
   - component: {fileID: 1324536340}
   - component: {fileID: 1324536341}
-  - component: {fileID: 1324536342}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -2539,32 +2528,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!61 &1324536342
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324536335}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: -0.03}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.8}
-    newSize: {x: 0.96, y: 0.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.15}
-  m_EdgeRadius: 0
 --- !u!1 &1630286415
 GameObject:
   m_ObjectHideFlags: 0
