@@ -29,13 +29,10 @@ public class Bullet : MonoBehaviour {
             return;
         }
         
-        if (collision.collider.CompareTag("Bullet")) {
-            print("collide with bullet");
+        if (collision.collider.CompareTag("Bullet")
+            || collision.collider.CompareTag("Opponent Bullet")) {
             ScoreManager.instance.SubtractScore(collideWithBulletScore);
-
             StartCoroutine(ShotEffect());
-            // effect 추가 필요
-            // Destroy(gameObject);
         }
     }
 
@@ -48,7 +45,8 @@ public class Bullet : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         
-        if (GameManager.instance.isGameOver) {
+        if (GameManager.instance.isGameOver
+            && notTriggerEnterWhenOpponentBulletHitOpponent(other)) {
             return;
         }
 
@@ -65,4 +63,10 @@ public class Bullet : MonoBehaviour {
             item.Use(gameObject);
         }
     }
+
+    private bool notTriggerEnterWhenOpponentBulletHitOpponent(Collider2D opponent) {
+        return (opponent.CompareTag("Opponent")
+                && gameObject.CompareTag("Opponent Bullet"));
+    }
+    
 }
