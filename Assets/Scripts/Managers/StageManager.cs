@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class StageManager : MonoBehaviour {
 
@@ -33,6 +34,12 @@ public class StageManager : MonoBehaviour {
     public void GoNextStage() {
         stageProperty += 1;
         // TODO: tage가 증가하는 관련 이펙트가 추가되어야 함
+        Stage[] stages = Resources.FindObjectsOfTypeAll<Stage>();
+        print(stages.Length);
+
+        for (int i = 0; i < stages.Length; i++) {
+            stages[i].UpdateStage();
+        }
     }
 
 
