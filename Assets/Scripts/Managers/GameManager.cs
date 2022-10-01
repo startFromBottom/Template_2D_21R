@@ -46,5 +46,5 @@ public class GameManager
         FindObjectOfType<OpponentHealth>().onDeath += ScoreManager.instance.AddKillScore;
         FindObjectOfType<OpponentHealth>().onDeath += StageManager.instance.GoNextStage;
     }
-    
+
 }

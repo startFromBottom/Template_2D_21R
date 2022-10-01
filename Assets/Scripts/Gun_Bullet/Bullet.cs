@@ -30,9 +30,7 @@ public class Bullet : MonoBehaviour {
         }
         
         if (collision.collider.CompareTag("Bullet")) {
-            print("collide with bullet");
             ScoreManager.instance.SubtractScore(collideWithBulletScore);
-
             StartCoroutine(ShotEffect());
             // effect 추가 필요
             // Destroy(gameObject);

@@ -1,30 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemSpawner : MonoBehaviour {
+public class RandomItemSpawner : MonoBehaviour, IItemSpawner {
 
     public GameObject[] items;
-
-    // 아이템 생성 시간 간격
-    public float timeBetSpawnMax = 0.05f;
-    public float timeBetSpawnMin = 0.03f;
+    public ItemSpawnerVariables vars;
+    
     private float timeBetSpawn;
-
-    private float destroyTime = 7f;
-
-    // TODO: 하드코딩된 값이 아니라 화면 비율에 맞춰 동적으로 변화되게
-    // 할 수 있니
-    private float yMin = -3.5f;
-    private float yMax = 3.5f;
-
-    private float xMin = -2f;
-    private float xMax = 2f;
-
     private float lastSpawnTime;
 
     private void Start() {
         timeBetSpawn =
-            Random.Range(timeBetSpawnMin, timeBetSpawnMax);
+            Random.Range(vars.timeBetSpawnMin, vars.timeBetSpawnMax);
         lastSpawnTime = 0;
     }
 
@@ -32,33 +19,31 @@ public class ItemSpawner : MonoBehaviour {
 
        if (Time.time >= lastSpawnTime + timeBetSpawn) {
             lastSpawnTime = Time.time;
-            timeBetSpawn = Random.Range(timeBetSpawnMin,
-                timeBetSpawnMax);
+            timeBetSpawn = Random.Range(vars.timeBetSpawnMin,
+                vars.timeBetSpawnMax);
             Spawn();
         }
     }
 
-    private void Spawn() {
+    public void Spawn() {
 
         if (GameManager.instance.isGameOver) {
             return;
         }
 
         Vector2 spawnPosition = GetRandomPoint();
-
         GameObject selectedItems = items[Random.Range(0, items.Length)];
-
         GameObject item = Instantiate(selectedItems, spawnPosition,
             Quaternion.identity);
         item.SetActive(true);
 
-        Destroy(item, destroyTime);
+        Destroy(item, vars.destroyTime);
     }
-
+    
     private Vector2 GetRandomPoint() {
 
-        float xPos = Random.Range(xMin, xMax);
-        float yPos = Random.Range(yMin, yMax);
+        float xPos = Random.Range(vars.xMin, vars.xMax);
+        float yPos = Random.Range(vars.yMin, vars.yMax);
 
         return new Vector2(xPos, yPos);
      

@@ -24,8 +24,8 @@ public class PlayerInput : MonoBehaviour {
             fire = false;
         }
         // inactivate left, right movement
-        // moveLeft = Input.GetKey(KeyCode.LeftArrow);
-        // moveRight = Input.GetKey(KeyCode.RightArrow);
+        moveLeft = Input.GetKey(KeyCode.LeftArrow);
+        moveRight = Input.GetKey(KeyCode.RightArrow);
         standby = Input.GetMouseButtonDown(0);
         pulling = Input.GetMouseButton(0);
         fire = Input.GetMouseButtonUp(0);
