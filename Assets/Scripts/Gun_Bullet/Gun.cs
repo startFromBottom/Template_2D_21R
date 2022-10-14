@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour {
 
     private void Awake() {
         gunAudioPlayer = GetComponent<AudioSource>();
-        gunAnimator = GetComponent<Animator>();
+        // gunAnimator = GetComponent<Animator>();
     }
 
     private void OnEnable() {
@@ -51,7 +51,7 @@ public class Gun : MonoBehaviour {
         if (state == State.Ready
                && Time.time >= lastFireTime + gunData.timeBetFire) {
             lastFireTime = Time.time;
-            gunAnimator.SetTrigger("Shoot");
+            // gunAnimator.SetTrigger("Shoot");
             Shot();
         }
 
@@ -64,8 +64,6 @@ public class Gun : MonoBehaviour {
         BulletInstance.SetActive(true);
         BulletInstance.GetComponent<Rigidbody2D>()
             .AddForce(BulletInstance.transform.right * gunData.speed);
-
-        
         Destroy(BulletInstance, 3);
 
         ammoRemainProperty--;
